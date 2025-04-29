@@ -5,7 +5,7 @@ export function login(user) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(user)
-    })
+    }).then(res => res.json())
 }
 
 export function register(user) {
@@ -15,7 +15,7 @@ export function register(user) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(user)
-    })
+    }).then(res => res.json())
 }
 
 export function getUserProfile() {
@@ -23,5 +23,5 @@ export function getUserProfile() {
         headers: {
             Authorization: `Token ${localStorage.getItem('token')}`,
         }
-    })
+    }).then(res => res.json())
 }

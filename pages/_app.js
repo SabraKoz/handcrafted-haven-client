@@ -1,9 +1,12 @@
-import "@/styles/globals.css";
+import "@radix-ui/themes/styles.css";
+import { Theme } from "@radix-ui/themes"
 
 export default function Handcrafted({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page)
 
   return getLayout( 
-    <Component {...pageProps} />
+    <Theme accentColor="violet" grayColor="mauve">
+      <Component {...pageProps} />
+    </Theme>
   )
 }
