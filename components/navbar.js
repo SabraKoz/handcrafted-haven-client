@@ -34,15 +34,7 @@ export default function Navbar() {
   //             <Link href="/stores/new" className="navbar-item">Interested in selling?</Link>
   //         }
   //         <hr className="navbar-divider"></hr>
-  //         <Link href='/login' className="navbar-item" onClick={
-  //           () => {
-  //             localStorage.removeItem('token')
-  //             setIsLoggedIn(false)
-  //             router.push('/login')
-  //           }}
-  //         >
-  //           Log out
-  //         </Link>
+          
   //       </div>
   //     </section>
   //   )
@@ -64,22 +56,33 @@ export default function Navbar() {
   // }
 
   return (
-    <Flex direction="column" gap="4" p="3">
+    <Flex direction="column" gap="4" p="3" >
       <TabNav.Root color="violet">
 
-        <TabNav.Link style={{ padding: "15px" }} href="/products" active={pathname === "/products"}>
-          Products
+        <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/products"}>
+          <Link href="/products">Products</Link>
         </TabNav.Link>
 
-        <TabNav.Link style={{ padding: "15px" }} href="/stores" active={pathname === "/stores"}>
-          Stores
+        <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/stores"}>
+          <Link href="/stores">Stores</Link>
         </TabNav.Link>
 
-        {/* <div >
-          {
-            isLoggedIn ? getLoggedInButtons() : getLoggedOutButtons()
-          }
-        </div> */}
+        <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/profile"}>
+          <Link href="/profile">Profile</Link>
+        </TabNav.Link>
+
+        <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === ""}>
+        <Link href='/login' className="navbar-item" onClick={
+            () => {
+              localStorage.removeItem('token')
+              setIsLoggedIn(false)
+              router.push('/login')
+            }}
+          >
+            Log out
+          </Link>
+        </TabNav.Link>
+
       </TabNav.Root>
     </Flex>
   )
