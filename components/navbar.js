@@ -63,6 +63,10 @@ export default function Navbar() {
           <Link href="/products">Products</Link>
         </TabNav.Link>
 
+        <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/products/new"}>
+          <Link href="/products/new">New Product</Link>
+        </TabNav.Link>
+
         <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/stores"}>
           <Link href="/stores">Stores</Link>
         </TabNav.Link>

@@ -1,14 +1,30 @@
-import { Container, Heading } from "@radix-ui/themes";
+import { Box, Container, Heading } from "@radix-ui/themes";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
+import { useEffect, useState } from "react";
+import { getAllStores } from "../../data/stores";
+import { StoreCard } from "../../components/storecard";
 
 
 export default function Stores() {
+    const [stores, setStores] = useState([])
 
+    useEffect(() => {
+        getAllStores().then(data => {
+            if (data) {
+                setStores(data)
+            }
+        })
+    }, [])
 
     return (
         <Container>
             <Heading m="5">Stores</Heading>
+            <Box>
+                {stores.map(store => (
+                    <StoreCard store={store} key={store.id} />
+                ))}
+            </Box>
         </Container>
     )
 }

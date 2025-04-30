@@ -1,9 +1,10 @@
-import { Container, Heading } from "@radix-ui/themes";
+import { Box, Container, Heading, HoverCard, Text } from "@radix-ui/themes";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { getProductById } from "../../../data/products";
 import Layout from "../../../components/layout";
 import Navbar from "../../../components/navbar";
+import Link from "next/link";
 
 
 export default function ProductDetail() {
@@ -13,7 +14,7 @@ export default function ProductDetail() {
 
     const refresh = () => {
         getProductById(id).then(data => {
-            if(data) {
+            if (data) {
                 setProduct(data)
             }
         })
@@ -27,7 +28,32 @@ export default function ProductDetail() {
 
     return (
         <Container>
-            <Heading>{product.name}</Heading>
+            <Box>
+                <Heading>{product.name}</Heading>
+                <Box>
+                    <Text>Store: </Text>
+                    <HoverCard.Root>
+                        <HoverCard.Trigger>
+                            <Link href={`/store/${product.store}`}>{product.store}</Link>
+                        </HoverCard.Trigger>
+                        <HoverCard.Content>
+                            <Text>View Store</Text>
+                        </HoverCard.Content>
+                    </HoverCard.Root>
+                </Box>
+                <Box>
+                    <Text>Quantity: </Text>
+                    {product.quantity}
+                </Box>
+                <Box>
+                    <Text>Favorites: </Text>
+                    {product.favorites?.length}
+                </Box>
+                <Box>
+                    {product.description}
+                    <img src={product.image_path} style={{ width: "100%", height: "100%", borderRadius: "15px" }} />
+                </Box>
+            </Box>
         </Container>
     )
 }
@@ -35,7 +61,7 @@ export default function ProductDetail() {
 ProductDetail.getLayout = function getLayout(page) {
     return (
         <Layout>
-            <Navbar/>
+            <Navbar />
             {page}
         </Layout>
     )
