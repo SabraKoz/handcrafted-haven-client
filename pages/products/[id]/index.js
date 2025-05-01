@@ -34,7 +34,7 @@ export default function ProductDetail() {
                     <Text>Store: </Text>
                     <HoverCard.Root>
                         <HoverCard.Trigger>
-                            <Link href={`/store/${product.store}`}>{product.store}</Link>
+                            <Link href={`/stores/${product.store?.id}`}>{product.store?.name}</Link>
                         </HoverCard.Trigger>
                         <HoverCard.Content>
                             <Text>View Store</Text>
