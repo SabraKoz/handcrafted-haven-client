@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useEffect, useState, useRef } from 'react'
 import { useAppContext } from '../context/state'
 import { useRouter } from 'next/router'
-import { Flex, TabNav } from '@radix-ui/themes'
+import { TabNav } from '@radix-ui/themes'
 
 export default function Navbar() {
   const { token, profile } = useAppContext()
@@ -56,15 +56,10 @@ export default function Navbar() {
   // }
 
   return (
-    <Flex direction="column" gap="4" p="3" >
-      <TabNav.Root color="violet">
+      <TabNav.Root justify="center" >
 
         <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/products"}>
           <Link href="/products">Products</Link>
-        </TabNav.Link>
-
-        <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/products/new"}>
-          <Link href="/products/new">New Product</Link>
         </TabNav.Link>
 
         <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/stores"}>
@@ -88,6 +83,5 @@ export default function Navbar() {
         </TabNav.Link>
 
       </TabNav.Root>
-    </Flex>
   )
 }

@@ -75,8 +75,8 @@ export default function EditProduct() {
     return (
         <Container>
             <Box>
-                <Heading>Edit Product</Heading>
-                <Box>
+                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray"}}s>Edit Product</Heading>
+                <Box m="3">
                     <Text>Name: </Text>
                     <TextField.Root
                         id="name"
@@ -87,7 +87,7 @@ export default function EditProduct() {
                         onChange={(e) => setProduct(prev => ({ ...prev, name: e.target.value }))}
                     />
                 </Box>
-                <Box>
+                <Box m="3">
                     <Text>Description: </Text>
                     <TextField.Root
                         id="description"
@@ -98,7 +98,7 @@ export default function EditProduct() {
                         onChange={(e) => setProduct(prev => ({ ...prev, description: e.target.value }))}
                     />
                 </Box>
-                <Box>
+                <Box m="3">
                     <Text>Price: </Text>
                     <TextField.Root
                         id="price"
@@ -109,7 +109,7 @@ export default function EditProduct() {
                         onChange={(e) => setProduct(prev => ({ ...prev, price: e.target.value }))}
                     />
                 </Box>
-                <Box>
+                <Box m="3">
                     <Text>Quantity: </Text>
                     <TextField.Root
                         id="quantity"
@@ -120,7 +120,7 @@ export default function EditProduct() {
                         onChange={(e) => setProduct(prev => ({ ...prev, quantity: e.target.value }))}
                     />
                 </Box>
-                <Box>
+                <Box m="3">
                     <Text>Category: </Text>
                     <Select.Root
                         value={selectedCategory}
@@ -135,7 +135,7 @@ export default function EditProduct() {
                         </Select.Content>
                     </Select.Root>
                 </Box>
-                <Box>
+                <Box m="3">
                     <Text>Image: </Text>
                     <TextField.Root
                         type="file"

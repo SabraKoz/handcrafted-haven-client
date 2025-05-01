@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import { useAppContext } from '../context/state'
 import { login } from '../data/auth'
-import { Box, Button, Container, Heading, TextField } from '@radix-ui/themes'
+import { Box, Button, Container, Heading, Text, TextField } from '@radix-ui/themes'
 
 export default function Login() {
     const { setToken } = useAppContext()
@@ -27,12 +27,14 @@ export default function Login() {
     }
 
     return (
-        <Container>
-            <Box m="5" style={{ padding: "20px", borderRadius: "20px", boxShadow: "0 0 20px gray", background: "teal" }}>
+        <Container m="7">
+            <Box m="7" style={{ padding: "20px", borderRadius: "20px", boxShadow: "0 0 20px skyblue" }}>
                 <form>
-                    <Heading size="8" align="center" m="4">Welcome Back!</Heading>
-                    <Box m="3" style={{ display: "flex", justifyContent: "center" }}>
+                    <Heading size="8" align="center" m="5" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray"}}>Welcome Back to Handcrafted Haven!</Heading>
+                    <Box m="4" style={{ display: "flex", justifyContent: "center" }}>
+                        <Text m="2">Username: </Text>
                         <TextField.Root
+                            m="1"
                             style={{ width: "400px" }}
                             id="username"
                             placeholder="Username"
@@ -43,8 +45,10 @@ export default function Login() {
                             autoFocus
                         />
                     </Box>
-                    <Box m="3" style={{ display: "flex", justifyContent: "center" }}>
+                    <Box m="4" style={{ display: "flex", justifyContent: "center" }}>
+                        <Text m="2">Password: </Text>
                         <TextField.Root
+                            m="1"
                             style={{ width: "400px" }}
                             id="password"
                             placeholder="Password"
@@ -57,11 +61,9 @@ export default function Login() {
                     </Box>
                     <Box>
                         <Box m="3" style={{ display: "flex", justifyContent: "center" }} >
-                            <Button onClick={submit}>Login</Button>
-                        </Box>
-                        <Box m="3" style={{ display: "flex", justifyContent: "center" }}>
+                            <Button m="3" onClick={submit}>Login</Button>
                             <Link href="/register">
-                                <Button>Register</Button>
+                                <Button m="3">Register</Button>
                             </Link>
                         </Box>
                     </Box>

@@ -41,7 +41,7 @@ export function addProductToOrder(id) {
     }).then(res => res.json())
 }
 
-export const removeProductFromOrder(id) {
+export function removeProductFromOrder(id) {
     return fetch(`http://localhost:8000/orders/cart/${id}`, {
         method: "DELETE",
         headers: {

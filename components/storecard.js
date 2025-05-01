@@ -5,11 +5,23 @@ import Link from "next/link";
 export function StoreCard({ store }) {
 
     return (
-        <Card>
+        <Card m="2" style={{
+            backgroundColor: "",
+            transition: "transform 0.3s ease, box-shadow 0.3s ease"
+        }}
+        onMouseEnter={(event) => {
+            event.currentTarget.style.transform = "scale(1.01)";
+            event.currentTarget.style.boxShadow = "0px 0px 20px skyblue"
+        }}
+        onMouseLeave={(event) => {
+            event.currentTarget.style.transform = "scale(1)";
+            event.currentTarget.style.boxShadow = "none"
+        }}>
             <Heading>
-                <Link href={`stores/${store.id}`}>{store.name}</Link>
+                <Link href={`stores/${store.id}`} style={{ textDecoration: "none", color: "inherit" }}>{store.name}</Link>
             </Heading>
-            <Text>{store.description}</Text>
+            <Text as="div">Owner: {store.owner_name}</Text>
+            <Text as="div">{store.description}</Text>
         </Card>
     )
 }

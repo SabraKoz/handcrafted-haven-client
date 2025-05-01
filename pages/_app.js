@@ -4,9 +4,9 @@ import { Theme } from "@radix-ui/themes"
 export default function Handcrafted({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page)
 
-  return getLayout( 
-    <Theme accentColor="violet" grayColor="mauve">
-      <Component {...pageProps} />
+  return ( 
+    <Theme appearance="dark" accentColor="sky" grayColor="mauve">
+      {getLayout(<Component {...pageProps} />)}
     </Theme>
   )
 }

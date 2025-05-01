@@ -1,4 +1,4 @@
-import { Box, Container, Heading } from "@radix-ui/themes";
+import { Box, Container, Grid, Heading } from "@radix-ui/themes";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import { useEffect, useState } from "react";
@@ -21,12 +21,12 @@ export default function Products() {
 
     return (
         <Container>
-            <Heading m="5">Products</Heading>
-            <Box>
+            <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray"}}>Products</Heading>
+            <Grid columns="4" gap="3">
                 {products.map(product => (
                     <ProductCard product={product} key={product.id} img_src={`http://localhost:8000${product.image_path}`} />
                 ))}
-            </Box>
+            </Grid>
         </Container>
     )
 }

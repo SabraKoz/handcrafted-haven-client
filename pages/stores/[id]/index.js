@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../../../context/state";
 import { useEffect, useState } from "react";
 import { getStoreById } from "../../../data/stores";
-import { Box, Container, Heading, Text } from "@radix-ui/themes";
+import { Box, Container, Grid, Heading, Text } from "@radix-ui/themes";
 import { ProductCard } from "../../../components/productcard";
 import Layout from "../../../components/layout";
 import Navbar from "../../../components/navbar";
@@ -39,11 +39,11 @@ export default function StoreDetail() {
 
     return (
         <Container>
-            <Box>
-                <Heading>{store.name}</Heading>
-                <Text>{store.description}</Text>
-                <Text>Creator: {store.owner_name}</Text>
-                <Box>
+            <Box m="2">
+                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray"}}>{store.name}</Heading>
+                <Text m="2">{store.description}</Text>
+                <Text m="2">Creator: {store.owner_name}</Text>
+                <Grid columns="4" gap="3">
                     {store.store_products?.map(product => (
                         <ProductCard 
                             product={product} 
@@ -54,7 +54,7 @@ export default function StoreDetail() {
                             img_src={`http://localhost:8000${product.image_path}`} 
                             />
                     ))}
-                </Box>
+                </Grid>
             </Box>
         </Container>
     )

@@ -51,8 +51,8 @@ export default function NewProduct(product = {}) {
     return (
         <Container>
             <Box>
-            <Heading>Add New Product</Heading>
-            <Box>
+            <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray"}}>Add New Product</Heading>
+            <Box m="3">
                 <Text>Name: </Text>
                 <TextField.Root
                     id="productName"
@@ -62,7 +62,7 @@ export default function NewProduct(product = {}) {
                     value={product.productName}
                 />
             </Box>
-            <Box>
+            <Box m="3">
                 <Text>Description: </Text>
                 <TextField.Root
                     id="description"
@@ -72,7 +72,7 @@ export default function NewProduct(product = {}) {
                     value={product.description}
                      />
             </Box>
-            <Box>
+            <Box m="3">
                 <Text>Price: </Text>
                 <TextField.Root
                     id="price"
@@ -82,7 +82,7 @@ export default function NewProduct(product = {}) {
                     value={product.price}
                      />
             </Box>
-            <Box>
+            <Box m="3">
                 <Text>Quantity: </Text>
                 <TextField.Root
                     id="quantity"
@@ -92,7 +92,7 @@ export default function NewProduct(product = {}) {
                     value={product.quantity}
                      />
             </Box>
-            <Box>
+            <Box m="3">
                 <Text>Category: </Text>
                 <Select.Root 
                     value={selectedCategory}
@@ -107,7 +107,7 @@ export default function NewProduct(product = {}) {
                     </Select.Content>
                 </Select.Root>
             </Box>
-            <Box>
+            <Box m="3">
                 <Text>Image: </Text>
                 <TextField.Root
                     type="file"
