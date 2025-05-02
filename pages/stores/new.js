@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { addStore } from "../../data/stores";
 
 
-export default function NewStore() {
+export default function NewStore(store = {}) {
     const { profile, setProfile } = useAppContext()
     const router = useRouter()
 
