@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../../../context/state";
 import { useEffect, useState } from "react";
 import { getStoreById } from "../../../data/stores";
-import { Box, Container, Grid, Heading, Text } from "@radix-ui/themes";
+import { Box, Button, Container, Grid, Heading, Link, Text } from "@radix-ui/themes";
 import { ProductCard } from "../../../components/productcard";
 import Layout from "../../../components/layout";
 import Navbar from "../../../components/navbar";
@@ -37,10 +37,20 @@ export default function StoreDetail() {
         deleteProduct(productId).then(refresh)
     }
 
+    const ownerButtons = () => {
+        return (
+            <Box>
+                <Button m="3" onClick={() => router.push(`/stores/${store.id}/edit`)} >Edit Store</Button>
+                <Button m="3" onClick={() => router.push("/products/new")} >Add New Product</Button>
+            </Box>
+        )
+    }
+
     return (
         <Container>
             <Box m="2">
                 <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray"}}>{store.name}</Heading>
+                {isOwner ? ownerButtons() : ""}
                 <Text m="2">{store.description}</Text>
                 <Text m="2">Creator: {store.owner_name}</Text>
                 <Grid columns="4" gap="3">

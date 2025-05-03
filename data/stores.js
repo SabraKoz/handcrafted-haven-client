@@ -33,5 +33,10 @@ export function editStore(store) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(store)
-    }).then(res => res.json())
+    }).then(res => {
+        if (res.status === 204) {
+            return null
+        }
+        return res.text()
+    })
 }

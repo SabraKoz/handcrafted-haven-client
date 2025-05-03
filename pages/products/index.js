@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { getAllCategories, getAllProducts } from "../../data/products";
 import { ProductCard } from "../../components/productcard";
 
-
 export default function Products() {
     const [products, setProducts] = useState([])
     const [categories, setCategories] = useState([])
