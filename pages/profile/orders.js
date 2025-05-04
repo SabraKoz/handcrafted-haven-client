@@ -23,7 +23,7 @@ export default function Orders() {
         getPayments().then(paymentData => {
             setPayments(paymentData)
         })
-    }, [])
+    }, [profile])
 
     return (
         <Flex>

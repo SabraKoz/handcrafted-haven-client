@@ -25,8 +25,8 @@ export function addStore(store) {
     }).then(res => res.json())
 }
 
-export function editStore(store) {
-    return fetch(`http://localhost:8000/stores/${store.id}`, {
+export function editStore(id, store) {
+    return fetch(`http://localhost:8000/stores/${id}`, {
         method: "PUT",
         headers: {
             Authorization: `Token ${localStorage.getItem('token')}`,

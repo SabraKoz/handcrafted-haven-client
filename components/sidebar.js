@@ -7,7 +7,8 @@ export function Sidebar({ activePath, profile }) {
     const links = [
         { path: "/profile", label: "Favorites" },
         { path: "/profile/cart", label: "Cart" },
-        { path: "/profile/orders", label: "Order History" }        
+        { path: "/profile/orders", label: "Order History" },
+        { path: "/profile/payment", label: "Payment Types" }      
     ];
 
     if (hasStore) {

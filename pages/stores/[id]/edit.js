@@ -29,8 +29,8 @@ export default function EditStore() {
             description: store.description
         }
 
-        editStore(updatedStore).then(() => {
-            router.push(`/stores/${store.id}`)
+        editStore(id, updatedStore).then(() => {
+            router.push(`/stores/${id}`)
         })
     }
 
