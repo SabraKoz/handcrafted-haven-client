@@ -2,11 +2,12 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../../../context/state";
 import { useEffect, useState } from "react";
 import { getStoreById } from "../../../data/stores";
-import { Box, Button, Container, Grid, Heading, Link, Text } from "@radix-ui/themes";
-import { ProductCard } from "../../../components/productcard";
+import { Box, Button, Container, Dialog, Flex, Grid, Heading, Link, Text } from "@radix-ui/themes";
+import { ProductCard } from "../../../components/ProductCard";
 import Layout from "../../../components/layout";
 import Navbar from "../../../components/navbar";
 import { deleteProduct } from "../../../data/products";
+import StoreOwnerButtons from "../../../components/StoreOwnerButtons";
 
 
 export default function StoreDetail() {
@@ -39,10 +40,7 @@ export default function StoreDetail() {
 
     const ownerButtons = () => {
         return (
-            <Box>
-                <Button m="3" onClick={() => router.push(`/stores/${store.id}/edit`)} >Edit Store</Button>
-                <Button m="3" onClick={() => router.push("/products/new")} >Add New Product</Button>
-            </Box>
+            <StoreOwnerButtons store={store} id={id} profile={profile} refresh={refresh} />
         )
     }
 

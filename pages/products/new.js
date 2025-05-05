@@ -123,7 +123,7 @@ export default function NewProduct(product = {}) {
             </Box>
             <Box>
                 <Button m="4" onClick={saveProduct}>Save</Button>
-                <Button m="4" onClick={() => router.back()}>Cancel</Button>
+                <Button m="4" color="red" onClick={() => router.back()}>Cancel</Button>
             </Box>
             </Box>
         </Container>

@@ -3,7 +3,7 @@ import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import { useEffect, useState } from "react";
 import { getAllCategories, getAllProducts } from "../../data/products";
-import { ProductCard } from "../../components/productcard";
+import { ProductCard } from "../../components/ProductCard";
 
 export default function Products() {
     const [products, setProducts] = useState([])

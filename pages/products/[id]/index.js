@@ -72,9 +72,9 @@ export default function ProductDetail() {
                 </Box>
                 {
                     product.is_favorited ? 
-                        <Button onClick={unfavorite}><FaHeart/></Button>
+                        <Button onClick={unfavorite} color="red"><FaHeart /></Button>
                         :
-                        <Button onClick={favorite}><FaRegHeart /></Button>
+                        <Button onClick={favorite} color="red"><FaRegHeart /></Button>
                 }
                 <Box>
                     <Button onClick={addToCart}>Add to Cart</Button>

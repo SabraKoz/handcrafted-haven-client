@@ -151,7 +151,7 @@ export default function EditProduct() {
                 </Box>
                 <Box>
                     <Button m="4" onClick={updateProduct}>Save</Button>
-                    <Button m="4" onClick={() => router.back()}>Cancel</Button>
+                    <Button m="4" color="red" onClick={() => router.back()}>Cancel</Button>
                 </Box>
             </Box>
         </Container>

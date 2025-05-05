@@ -1,5 +1,5 @@
 import { Box, Button, Container, Dialog, Flex, Heading, Table, Text } from "@radix-ui/themes";
-import { Sidebar } from "../../components/sidebar";
+import { Sidebar } from "../../components/Sidebar";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import { useRouter } from "next/router";
@@ -7,7 +7,7 @@ import { useAppContext } from "../../context/state";
 import { useEffect, useState } from "react";
 import { getCart, removeProductFromOrder } from "../../data/orders";
 import { FaTrash } from "react-icons/fa"
-import OrderPayment from "../../components/orderpayment";
+import OrderPayment from "../../components/OrderPayment";
 
 export default function Cart(payment = {}) {
     const { profile } = useAppContext()
@@ -71,7 +71,7 @@ export default function Cart(payment = {}) {
                 <Box m="9">
                     {cart.items && cart.items.length > 0 ? (
                         <Box>
-                            <OrderPayment payment={payment} cart={cart} refresh={refresh} />
+                            <OrderPayment payment={payment} cart={cart} />
                         </Box>
                     ) : ""}
                 </Box>

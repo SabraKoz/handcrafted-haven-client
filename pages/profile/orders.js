@@ -4,7 +4,7 @@ import { getPayments } from "../../data/payments";
 import { Box, Container, Flex, Heading, Table } from "@radix-ui/themes";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
-import { Sidebar } from "../../components/sidebar";
+import { Sidebar } from "../../components/Sidebar";
 import { useRouter } from "next/router";
 import { useAppContext } from "../../context/state";
 

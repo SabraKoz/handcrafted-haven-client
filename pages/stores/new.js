@@ -48,7 +48,7 @@ export default function NewStore(store = {}) {
             </Box>
             <Box>
                 <Button m="4" onClick={saveStore}>Save</Button>
-                <Button m="4" onClick={() => router.back()}>Cancel</Button>
+                <Button m="4" color="red" onClick={() => router.back()}>Cancel</Button>
             </Box>
             </Box>
         </Container>

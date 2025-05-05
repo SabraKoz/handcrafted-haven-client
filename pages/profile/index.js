@@ -1,10 +1,10 @@
 import { Box, Container, Flex, Grid, Heading } from "@radix-ui/themes";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
-import { Sidebar } from "../../components/sidebar";
+import { Sidebar } from "../../components/Sidebar";
 import { useEffect, useState } from "react";
 import { getFavoritedProducts } from "../../data/products";
-import { ProductCard } from "../../components/productcard";
+import { ProductCard } from "../../components/ProductCard";
 import { useRouter } from "next/router";
 import { useAppContext } from "../../context/state";
 

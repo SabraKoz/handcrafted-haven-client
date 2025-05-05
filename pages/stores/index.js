@@ -3,7 +3,7 @@ import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import { useEffect, useState } from "react";
 import { getAllStores } from "../../data/stores";
-import { StoreCard } from "../../components/storecard";
+import { StoreCard } from "../../components/StoreCard";
 
 
 export default function Stores() {
@@ -19,7 +19,7 @@ export default function Stores() {
 
     return (
         <Container>
-            <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray"}}>Stores</Heading>
+            <Heading m="5" align="center" size="8" weight="bold" style={{ textShadow: "2px 2px 2px gray", color: "skyblue"}}>Stores</Heading>
             <Grid columns="3" gap="3">
                 {stores.map(store => (
                     <StoreCard store={store} key={store.id} />

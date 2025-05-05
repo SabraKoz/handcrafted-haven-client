@@ -1,5 +1,5 @@
 import { Box, Button, Container, Dialog, Flex, Heading, Table, Text, TextField } from "@radix-ui/themes";
-import { Sidebar } from "../../components/sidebar";
+import { Sidebar } from "../../components/Sidebar";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import { useRouter } from "next/router";
