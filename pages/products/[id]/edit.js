@@ -75,7 +75,7 @@ export default function EditProduct() {
     return (
         <Container>
             <Box>
-                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray"}}s>Edit Product</Heading>
+                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray"}}>Edit Product</Heading>
                 <Box m="3">
                     <Text>Name: </Text>
                     <TextField.Root

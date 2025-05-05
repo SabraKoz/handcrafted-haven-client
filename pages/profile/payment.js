@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../../context/state";
 import { useEffect, useState } from "react";
 import { addPayment, deletePayment, getPayments } from "../../data/payments";
+import { FaTrash } from "react-icons/fa"
 
 export default function Payments(payment = {}) {
     const router = useRouter()
@@ -58,32 +59,44 @@ export default function Payments(payment = {}) {
                                 <label>
                                     <Text>Merchant Name</Text>
                                     <TextField.Root
+                                        id="merchant"
+                                        placeholder="Merchant Name"
+                                        type="text"
                                         value={payment.merchant}
                                      />
                                 </label>
                                 <label>
                                     <Text>Card Number</Text>
                                     <TextField.Root
+                                        id="number"
+                                        placeholder="Card Number"
+                                        type="text"
                                         value={payment.number} />
                                 </label>
                                 <label>
                                     <Text>Expiration Date</Text>
                                     <TextField.Root
+                                        id="expiration"
+                                        placeholder="YYYY-MM-DD"
+                                        type="text"
                                         value={payment.expiration} />
                                 </label>
                                 <label>
-                                    <Text>Address</Text>
+                                    <Text>Shipping and Billing Address</Text>
                                     <TextField.Root
+                                        id="address"
+                                        placeholder="Address"
+                                        type="text"
                                         value={payment.address} />
                                 </label>
                             </Flex>
 
                             <Flex>
                                 <Dialog.Close>
-                                    <Button>Cancel</Button>
+                                    <Button m="3" onClick={addNewPayment}>Save Payment</Button>
                                 </Dialog.Close>
                                 <Dialog.Close>
-                                    <Button onClick={addNewPayment}>Save Payment</Button>
+                                    <Button m="3">Cancel</Button>
                                 </Dialog.Close>
                             </Flex>
                         </Dialog.Content>
@@ -95,6 +108,8 @@ export default function Payments(payment = {}) {
                             <Table.ColumnHeaderCell>Merchant Name</Table.ColumnHeaderCell>
                             <Table.ColumnHeaderCell>Card Number</Table.ColumnHeaderCell>
                             <Table.ColumnHeaderCell>Expiration Date</Table.ColumnHeaderCell>
+                            <Table.ColumnHeaderCell>Address</Table.ColumnHeaderCell>
+                            <Table.ColumnHeaderCell>Remove Payment</Table.ColumnHeaderCell>
                         </Table.Row>
                     </Table.Header>
                     {payments.map(payment => (
@@ -103,6 +118,8 @@ export default function Payments(payment = {}) {
                                 <Table.RowHeaderCell>{payment.merchant}</Table.RowHeaderCell>
                                 <Table.Cell>{payment.number}</Table.Cell>
                                 <Table.Cell>{payment.expiration}</Table.Cell>
+                                <Table.Cell>{payment.address}</Table.Cell>
+                                <Table.Cell><FaTrash onClick={() => removePayment(payment.id)} /></Table.Cell>
                             </Table.Row>
                         </Table.Body>
                     ))}

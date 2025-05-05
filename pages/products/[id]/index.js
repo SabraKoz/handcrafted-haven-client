@@ -5,6 +5,7 @@ import { favoriteProduct, getProductById, unfavoriteProduct } from "../../../dat
 import Layout from "../../../components/layout";
 import Navbar from "../../../components/navbar";
 import Link from "next/link";
+import { FaHeart, FaRegHeart } from "react-icons/fa"
 
 export default function ProductDetail() {
     const router = useRouter()
@@ -39,9 +40,9 @@ export default function ProductDetail() {
                 <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray" }}>{product.name}</Heading>
                 {
                     product.is_favorited ? 
-                        <Button onClick={unfavorite}>Unfavorite</Button>
+                        <Button onClick={unfavorite}><FaHeart/></Button>
                         :
-                        <Button onClick={favorite}>Favorite</Button>
+                        <Button onClick={favorite}><FaRegHeart /></Button>
                 }
                 <Box m="3">
                     <Text>Store: </Text>
