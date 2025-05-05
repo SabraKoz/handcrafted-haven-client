@@ -1,36 +1,30 @@
-import { Box, Button, Flex, Heading, Table } from "@radix-ui/themes";
+import { Box, Button, Container, Dialog, Flex, Heading, Table, Text } from "@radix-ui/themes";
 import { Sidebar } from "../../components/sidebar";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import { useRouter } from "next/router";
 import { useAppContext } from "../../context/state";
 import { useEffect, useState } from "react";
-import { completeCurrentOrder, getCart, removeProductFromOrder } from "../../data/orders";
+import { getCart, removeProductFromOrder } from "../../data/orders";
 import { FaTrash } from "react-icons/fa"
-import { getPayments } from "../../data/payments";
+import OrderPayment from "../../components/orderpayment";
 
-export default function Cart() {
+export default function Cart(payment = {}) {
     const { profile } = useAppContext()
     const router = useRouter()
     const [cart, setCart] = useState({})
-    const [paymentTypes, setPaymentTypes] = useState([])
 
     const refresh = () => {
         getCart().then(cartData => {
             if (cartData) {
                 setCart(cartData)
-            }
+            } else {{ }}
         })
     }
 
     useEffect(() => {
         refresh()
-        getPayments().then(paymentData => {
-            if (paymentData) {
-                setPaymentTypes(paymentData)
-            }
-        })
-    }, [])
+    }, [cart])
 
     const deleteProductFromOrder = (productId) => {
         removeProductFromOrder(productId).then(() => {
@@ -38,17 +32,12 @@ export default function Cart() {
         })
     }
 
-    const completeOrder = (paymentTypeId) => {
-        completeCurrentOrder(cart.id, paymentTypeId).then(() => {
-            router.push("/profile/orders")
-        })
-    }
-
     return (
         <Flex>
             <Sidebar activePath={router.pathname} profile={profile} />
-            <Box m="7">
-                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray" }}>Your Cart</Heading>
+            <Container m="7">
+                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray" }}>{profile.first_name}'s Cart</Heading>
+                <Box>
                 <Table.Root m="9" variant="surface">
                     <Table.Header>
                         <Table.Row>
@@ -62,10 +51,8 @@ export default function Cart() {
                             <Table.Row>
                                 <Table.RowHeaderCell>{product.product.name}</Table.RowHeaderCell>
                                 <Table.Cell>${product.product.price}</Table.Cell>
-                                <Table.Cell justify="center">
-                                    <Button
-                                        onClick={() => deleteProductFromOrder(product.id)}
-                                        style={{ backgroundColor: "red" }}>
+                                <Table.Cell>
+                                    <Button color="red" onClick={() => deleteProductFromOrder(product.id)}>
                                         <FaTrash />
                                     </Button>
                                 </Table.Cell>
@@ -76,15 +63,19 @@ export default function Cart() {
                         <Table.Row>
                             <Table.ColumnHeaderCell>Total Price</Table.ColumnHeaderCell>
                             <Table.ColumnHeaderCell>${cart.total}</Table.ColumnHeaderCell>
+                            <Table.ColumnHeaderCell>{ }</Table.ColumnHeaderCell>
                         </Table.Row>
                     </Table.Header>
                 </Table.Root>
+                </Box>
                 <Box m="9">
                     {cart.items && cart.items.length > 0 ? (
-                        <Button onClick={completeOrder}>Complete Order</Button>
+                        <Box>
+                            <OrderPayment payment={payment} cart={cart} refresh={refresh} />
+                        </Box>
                     ) : ""}
                 </Box>
-            </Box>
+            </Container>
         </Flex>
     )
 }

@@ -8,7 +8,7 @@ export function Sidebar({ activePath, profile }) {
         { path: "/profile", label: "Favorites" },
         { path: "/profile/cart", label: "Cart" },
         { path: "/profile/orders", label: "Order History" },
-        { path: "/profile/payment", label: "Payment Types" }      
+        { path: "/profile/payment", label: "Payment Methods" }    
     ];
 
     if (hasStore) {

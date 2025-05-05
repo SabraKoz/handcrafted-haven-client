@@ -32,20 +32,20 @@ export function ProductCard({ product, removeProduct, img_src, noButtons, isOwne
                 {isOwner && !noButtons ?
                     <Box>
                         <Button m="3" onClick={() => router.push(`/products/${product.id}/edit`)}>Edit</Button>
-                        <AlertDialog.Root>
+                        <AlertDialog.Root align="center">
                             <AlertDialog.Trigger>
-                                <Button m="3">Delete</Button>
+                                <Button m="3" color="red">Delete</Button>
                             </AlertDialog.Trigger>
                             <AlertDialog.Content>
-                                <AlertDialog.Title>Delete Product</AlertDialog.Title>
-                                <AlertDialog.Description>Are you sure you want to permanently delete "{product.name}"?</AlertDialog.Description>
-                                <Box>
-                                    <AlertDialog.Cancel>
-                                        <Button m="3">Cancel</Button>
-                                    </AlertDialog.Cancel>
+                                <AlertDialog.Title align="center" m="3">Delete Product</AlertDialog.Title>
+                                <AlertDialog.Description align="center" m="3">Are you sure you want to permanently delete "{product.name}"?</AlertDialog.Description>
+                                <Box align="center">
                                     <AlertDialog.Action>
                                         <Button m="3" color="red" onClick={() => removeProduct(product.id)}>Delete</Button>
                                     </AlertDialog.Action>
+                                    <AlertDialog.Cancel>
+                                        <Button m="3">Cancel</Button>
+                                    </AlertDialog.Cancel>
                                 </Box>
                             </AlertDialog.Content>
                         </AlertDialog.Root>

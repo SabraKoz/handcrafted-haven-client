@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, Heading } from "@radix-ui/themes";
+import { Box, Container, Flex, Grid, Heading } from "@radix-ui/themes";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import { Sidebar } from "../../components/sidebar";
@@ -22,14 +22,14 @@ export default function Profile() {
     return (
         <Flex>
             <Sidebar activePath={router.pathname} profile={profile} />
-            <Box m="7">
-                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray" }}>Favorites</Heading>
+            <Container m="7">
+                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray" }}>{profile.first_name}'s Favorites</Heading>
                 <Grid columns="3" gap="4">
                     {favorites.map(product => (
                         <ProductCard product={product} key={product.id} img_src={product.image_path} />
                     ))}
                 </Grid>
-            </Box>
+            </Container>
         </Flex>
     )
 }

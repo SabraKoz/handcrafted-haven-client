@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getOrders } from "../../data/orders";
 import { getPayments } from "../../data/payments";
-import { Box, Flex, Heading, Table } from "@radix-ui/themes";
+import { Box, Container, Flex, Heading, Table } from "@radix-ui/themes";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import { Sidebar } from "../../components/sidebar";
@@ -28,8 +28,8 @@ export default function Orders() {
     return (
         <Flex>
             <Sidebar activePath={router.pathname} profile={profile} />
-            <Box m="7">
-                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray" }}>Order History</Heading>
+            <Container m="7">
+                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray" }}>{profile.first_name}'s Order History</Heading>
                 <Table.Root variant="surface">
                     <Table.Header>
                         <Table.Row>
@@ -50,7 +50,7 @@ export default function Orders() {
                         </Table.Body>
                     ))}
                 </Table.Root>
-            </Box>
+            </Container>
         </Flex>
     )
 }
