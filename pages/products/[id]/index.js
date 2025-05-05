@@ -1,4 +1,4 @@
-import { Box, Button, Card, Container, Heading, HoverCard, Text } from "@radix-ui/themes";
+import { Box, Button, Card, Container, Flex, Heading, HoverCard, Text } from "@radix-ui/themes";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { favoriteProduct, getProductById, unfavoriteProduct } from "../../../data/products";
@@ -7,6 +7,7 @@ import Navbar from "../../../components/navbar";
 import Link from "next/link";
 import { FaHeart, FaRegHeart } from "react-icons/fa"
 import Reviews from "../../../components/reviews";
+import { addProductToOrder } from "../../../data/orders";
 
 export default function ProductDetail() {
     const router = useRouter()
@@ -35,23 +36,24 @@ export default function ProductDetail() {
         unfavoriteProduct(id).then(refresh)
     }
 
+    const addToCart = () => {
+        addProductToOrder(product.id).then(() => {
+            router.push("/profile/cart")
+        })
+    }
+
     return (
         <Container>
             <Box>
                 <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray" }}>{product.name}</Heading>
-                {
-                    product.is_favorited ? 
-                        <Button onClick={unfavorite}><FaHeart/></Button>
-                        :
-                        <Button onClick={favorite}><FaRegHeart /></Button>
-                }
+                <Flex justify="between">
                 <Box m="3">
                     <Text>Store: </Text>
                     <HoverCard.Root>
                         <HoverCard.Trigger>
-                            <Link href={`/stores/${product.store?.id}`} style={{ textDecoration: "none", color: "inherit" }}>{product.store?.name}</Link>
+                            <Link href={`/stores/${product.store?.id}`} style={{ textDecoration: "none", color: "skyblue" }}>{product.store?.name}</Link>
                         </HoverCard.Trigger>
-                        <HoverCard.Content>
+                        <HoverCard.Content size="1">
                             <Text>View Store</Text>
                         </HoverCard.Content>
                     </HoverCard.Root>
@@ -68,12 +70,24 @@ export default function ProductDetail() {
                     <Text>Reviews: </Text>
                     {product.reviews?.length}
                 </Box>
+                {
+                    product.is_favorited ? 
+                        <Button onClick={unfavorite}><FaHeart/></Button>
+                        :
+                        <Button onClick={favorite}><FaRegHeart /></Button>
+                }
+                <Box>
+                    <Button onClick={addToCart}>Add to Cart</Button>
+                </Box>
+                </Flex>
+                <Flex justify="between">
                 <Box m="3">
                     {product.description}
                 </Box>
                 <Box m="3">
                     <img src={product.image_path} style={{ width: "100%", height: "100%", borderRadius: "15px" }} />
                 </Box>
+                </Flex>
                 <Box>
                     <Reviews product={product} refresh={refresh} />
                 </Box>

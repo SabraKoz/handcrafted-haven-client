@@ -23,7 +23,7 @@ export default function Products() {
             <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray"}}>Products</Heading>
             <Grid columns="4" gap="3">
                 {products.map(product => (
-                    <ProductCard product={product} key={product.id} img_src={`http://localhost:8000${product.image_path}`} />
+                    <ProductCard product={product} key={product.id} img_src={product.image_path} />
                 ))}
             </Grid>
         </Container>

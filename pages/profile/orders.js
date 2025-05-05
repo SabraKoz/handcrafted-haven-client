@@ -34,8 +34,8 @@ export default function Orders() {
                     <Table.Header>
                         <Table.Row>
                             <Table.ColumnHeaderCell>Order Number</Table.ColumnHeaderCell>
-                            <Table.ColumnHeaderCell>Order Date</Table.ColumnHeaderCell>
-                            <Table.ColumnHeaderCell>Order Total</Table.ColumnHeaderCell>
+                            <Table.ColumnHeaderCell>Date</Table.ColumnHeaderCell>
+                            <Table.ColumnHeaderCell>Total</Table.ColumnHeaderCell>
                             <Table.ColumnHeaderCell>Payment Method</Table.ColumnHeaderCell>
                         </Table.Row>
                     </Table.Header>

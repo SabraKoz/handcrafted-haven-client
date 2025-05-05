@@ -50,7 +50,7 @@ export default function Payments(payment = {}) {
                 <Box>
                     <Dialog.Root>
                         <Dialog.Trigger>
-                            <Button m="4">Add Payment Type</Button>
+                            <Button m="4" align="center">Add Payment Type</Button>
                         </Dialog.Trigger>
                         <Dialog.Content>
                             <Dialog.Title align="center" m="3">Add New Payment Type</Dialog.Title>
