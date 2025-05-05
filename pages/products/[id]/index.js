@@ -1,4 +1,4 @@
-import { Box, Button, Container, Heading, HoverCard, Text } from "@radix-ui/themes";
+import { Box, Button, Card, Container, Heading, HoverCard, Text } from "@radix-ui/themes";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { favoriteProduct, getProductById, unfavoriteProduct } from "../../../data/products";
@@ -6,6 +6,7 @@ import Layout from "../../../components/layout";
 import Navbar from "../../../components/navbar";
 import Link from "next/link";
 import { FaHeart, FaRegHeart } from "react-icons/fa"
+import Reviews from "../../../components/reviews";
 
 export default function ProductDetail() {
     const router = useRouter()
@@ -64,10 +65,17 @@ export default function ProductDetail() {
                     {product.favorites?.length}
                 </Box>
                 <Box m="3">
+                    <Text>Reviews: </Text>
+                    {product.reviews?.length}
+                </Box>
+                <Box m="3">
                     {product.description}
                 </Box>
                 <Box m="3">
                     <img src={product.image_path} style={{ width: "100%", height: "100%", borderRadius: "15px" }} />
+                </Box>
+                <Box>
+                    <Reviews product={product} refresh={refresh} />
                 </Box>
             </Box>
         </Container>

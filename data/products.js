@@ -74,6 +74,20 @@ export function reviewProduct(productId, review) {
     }).then(res => res.json())
 }
 
+export function deleteReview(productId) {
+    return fetch(`http://localhost:8000/products/${productId}/review`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Token ${localStorage.getItem('token')}`
+        }
+    }).then(res => {
+        if (res.status === 200) {
+            return null
+        }
+        return res.text()
+    })
+}
+
 export function favoriteProduct(productId) {
     return fetch(`http://localhost:8000/products/${productId}/favorite`, {
         method: "POST",
