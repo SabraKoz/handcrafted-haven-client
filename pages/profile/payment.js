@@ -119,7 +119,7 @@ export default function Payments(payment = {}) {
                                 <Table.Cell>{payment.number}</Table.Cell>
                                 <Table.Cell>{payment.expiration}</Table.Cell>
                                 <Table.Cell>{payment.address}</Table.Cell>
-                                <Table.Cell><FaTrash onClick={() => removePayment(payment.id)} /></Table.Cell>
+                                <Table.Cell justify="center"><Button onClick={() => removePayment(payment.id)} style={{ backgroundColor: "red" }}><FaTrash /></Button></Table.Cell>
                             </Table.Row>
                         </Table.Body>
                     ))}

@@ -42,7 +42,7 @@ export function addProductToOrder(id) {
 }
 
 export function removeProductFromOrder(id) {
-    return fetch(`http://localhost:8000/orders/cart/${id}`, {
+    return fetch(`http://localhost:8000/orderproducts/${id}`, {
         method: "DELETE",
         headers: {
             Authorization: `Token ${localStorage.getItem('token')}`
