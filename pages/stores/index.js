@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Heading } from "@radix-ui/themes";
+import { Container, Grid, Heading } from "@radix-ui/themes";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import { useEffect, useState } from "react";
