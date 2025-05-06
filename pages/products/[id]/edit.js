@@ -60,11 +60,8 @@ export default function EditProduct() {
             description: product.description,
             price: product.price,
             quantity: product.quantity,
-            category: selectedCategory
-        }
-
-        if (productImage) {
-            product.image_path = productImage
+            category: selectedCategory,
+            image_path: productImage || product.image_path
         }
 
         editProduct(id, updatedProduct).then(() => {
