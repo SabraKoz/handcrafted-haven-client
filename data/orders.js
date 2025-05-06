@@ -30,14 +30,14 @@ export function getCart() {
     }).then(res => res.json())
 }
 
-export function addProductToOrder(id) {
+export function addProductToOrder(id, customization) {
     return fetch(`http://localhost:8000/orders/cart`, {
         method: "POST",
         headers: {
             Authorization: `Token ${localStorage.getItem('token')}`,
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({"product": id})
+        body: JSON.stringify({"product": id, "customization": customization})
     }).then(res => res.json())
 }
 

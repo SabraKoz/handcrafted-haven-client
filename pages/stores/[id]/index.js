@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../../../context/state";
 import { useEffect, useState } from "react";
 import { getStoreById } from "../../../data/stores";
-import { Box, Button, Container, Dialog, Flex, Grid, Heading, Link, Text } from "@radix-ui/themes";
+import { Box, Button, Card, Container, Dialog, Flex, Grid, Heading, Link, Text } from "@radix-ui/themes";
 import { ProductCard } from "../../../components/ProductCard";
 import Layout from "../../../components/layout";
 import Navbar from "../../../components/navbar";
@@ -46,11 +46,14 @@ export default function StoreDetail() {
 
     return (
         <Container>
+            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "2px 2px 10px gray" }}>
             <Box m="2">
-                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray"}}>{store.name}</Heading>
+                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "teal", textShadow: "1px 1px 2px black"}}>{store.name}</Heading>
                 {isOwner ? ownerButtons() : ""}
-                <Text m="2">{store.description}</Text>
-                <Text m="2">Creator: {store.owner_name}</Text>
+                <Flex justify="center">
+                <Text m="3">{store.description}</Text>
+                <Text m="3">Creator: {store.owner_name}</Text>
+                </Flex>
                 <Grid columns="4" gap="3">
                     {store.store_products?.map(product => (
                         <ProductCard 
@@ -64,6 +67,7 @@ export default function StoreDetail() {
                     ))}
                 </Grid>
             </Box>
+            </Card>
         </Container>
     )
 }

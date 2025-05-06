@@ -1,4 +1,4 @@
-import { Box, Button, Card, Container, Flex, Heading, HoverCard, Text } from "@radix-ui/themes";
+import { Box, Button, Card, Container, Dialog, Flex, Heading, HoverCard, Text, TextField } from "@radix-ui/themes";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { favoriteProduct, getProductById, unfavoriteProduct } from "../../../data/products";
@@ -7,12 +7,13 @@ import Navbar from "../../../components/navbar";
 import Link from "next/link";
 import { FaHeart, FaRegHeart } from "react-icons/fa"
 import Reviews from "../../../components/reviews";
-import { addProductToOrder } from "../../../data/orders";
+import { addProductToOrder, getCart } from "../../../data/orders";
 
 export default function ProductDetail() {
     const router = useRouter()
     const { id } = router.query
     const [product, setProduct] = useState({})
+    const [customMessage, setCustomMessage] = useState("")
 
     const refresh = () => {
         getProductById(id).then(data => {
@@ -37,21 +38,28 @@ export default function ProductDetail() {
     }
 
     const addToCart = () => {
-        addProductToOrder(product.id).then(() => {
+        addProductToOrder(product.id, customMessage).then(() => {
             router.push("/profile/cart")
         })
     }
 
     return (
         <Container>
-            <Box>
-                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray" }}>{product.name}</Heading>
-                <Flex justify="between">
+            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "2px 2px 10px gray" }}>
+                <Heading 
+                    m="5" 
+                    align="center" 
+                    size="8" 
+                    weight="bold" 
+                    style={{ color: "teal", textShadow: "1px 1px 2px black" }}>
+                        {product.name}
+                </Heading>
+                <Flex justify="between" m="5">
                 <Box m="3">
                     <Text>Store: </Text>
                     <HoverCard.Root>
                         <HoverCard.Trigger>
-                            <Link href={`/stores/${product.store?.id}`} style={{ textDecoration: "none", color: "skyblue" }}>{product.store?.name}</Link>
+                            <Link href={`/stores/${product.store?.id}`} style={{ textDecoration: "none", color: "teal", fontWeight: "bold" }}>{product.store?.name}</Link>
                         </HoverCard.Trigger>
                         <HoverCard.Content size="1">
                             <Text>View Store</Text>
@@ -72,26 +80,52 @@ export default function ProductDetail() {
                 </Box>
                 {
                     product.is_favorited ? 
-                        <Button onClick={unfavorite} color="red"><FaHeart /></Button>
+                        <Button onClick={unfavorite}><FaHeart /></Button>
                         :
-                        <Button onClick={favorite} color="red"><FaRegHeart /></Button>
+                        <Button onClick={favorite}><FaRegHeart /></Button>
                 }
                 <Box>
-                    <Button onClick={addToCart}>Add to Cart</Button>
+                    <Dialog.Root>
+                        <Dialog.Trigger>
+                            <Button>Add to Cart</Button>
+                        </Dialog.Trigger>
+                        <Dialog.Content style={{ backgroundColor: "#BAC5BE"}}>
+                            <Dialog.Title align="center" m="3">Customization</Dialog.Title>
+                            <Dialog.Description align="center" m="3">Add an optional customization message for the creator</Dialog.Description>
+                            <TextField.Root
+                                id="customization"
+                                placeholder="Add customization message..."
+                                type="text"
+                                value={customMessage}
+                                onChange={e => setCustomMessage(e.target.value)}
+                                style={{ backgroundColor: "#f5e8d5"}} m="3" />
+                            <Box align="center">
+                                <Dialog.Close>
+                                    <Button m="3" onClick={addToCart}>Add to Cart</Button>
+                                </Dialog.Close>
+                                <Dialog.Close>
+                                    <Button onClick={addToCart} m="3">Add without Customization</Button>
+                                </Dialog.Close>
+                                <Dialog.Close>
+                                    <Button m="3" color="red">Cancel</Button>
+                                </Dialog.Close>
+                            </Box>
+                        </Dialog.Content>
+                    </Dialog.Root>
                 </Box>
                 </Flex>
-                <Flex justify="between">
-                <Box m="3">
+                <Flex justify="between" m="5">
+                <Box m="3" style={{ fontSize: "1.1rem", lineHeight: "1.5", maxWidth: "60%" }}>
                     {product.description}
                 </Box>
                 <Box m="3">
-                    <img src={product.image_path} style={{ width: "100%", height: "100%", borderRadius: "15px" }} />
+                    <img src={product.image_path} style={{ maxWidth: "500px", maxHeight: "400px", width: "100%", height: "auto", borderRadius: "15px" }} />
                 </Box>
                 </Flex>
                 <Box>
                     <Reviews product={product} refresh={refresh} />
                 </Box>
-            </Box>
+            </Card>
         </Container>
     )
 }

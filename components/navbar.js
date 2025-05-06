@@ -5,60 +5,22 @@ import { useRouter } from 'next/router'
 import { TabNav } from '@radix-ui/themes'
 
 export default function Navbar() {
-  const { token, profile } = useAppContext()
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const { token, setToken, profile } = useAppContext()
   const router = useRouter()
   const { pathname } = useRouter()
+  const isLoggedIn = !!token
 
-  useEffect(() => {
-    if (token) {
-      setIsLoggedIn(true)
-    }
-  }, [token])
-
-  // const getLoggedInButtons = () => {
-  //   return (
-  //     <section>
-  //       <div>
-  //         <Link href="/cart" className="navbar-item">Cart</Link>
-  //         <Link href="/my-orders" className="navbar-item">My Orders</Link>
-  //         <Link href="/payments" className="navbar-item">Payment Methods</Link>
-  //         <Link href="/profile" className="navbar-item">Profile</Link>
-  //         {
-  //           profile.store ?
-  //             <>
-  //               <Link href={`/stores/${profile.store.id}`} className="navbar-item">View Your Store</Link>
-  //               <Link href="/products/new" className="navbar-item">Add a new Product</Link>
-  //             </>
-  //             :
-  //             <Link href="/stores/new" className="navbar-item">Interested in selling?</Link>
-  //         }
-  //         <hr className="navbar-divider"></hr>
-          
-  //       </div>
-  //     </section>
-  //   )
-  // }
-
-  // const getLoggedOutButtons = () => {
-  //   return (
-  //     <div>
-  //       <div>
-  //         <Link href="/register">
-  //           <strong>Sign up</strong>
-  //         </Link>
-  //         <Link href="/login">
-  //           Log in
-  //         </Link>
-  //       </div>
-  //     </div>
-  //   )
-  // }
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    setToken(null)
+    router.push('/login')
+  }
 
   return (
-      <TabNav.Root justify="center" >
-
-        <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/products"}>
+      <TabNav.Root justify="center" style={{ backgroundColor: "#BAC5BE" }} >
+        {isLoggedIn ? (
+          <>
+          <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/products"}>
           <Link href="/products">Products</Link>
         </TabNav.Link>
 
@@ -71,17 +33,23 @@ export default function Navbar() {
         </TabNav.Link>
 
         <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === ""}>
-        <Link href='/login' className="navbar-item" onClick={
-            () => {
-              localStorage.removeItem('token')
-              setIsLoggedIn(false)
-              router.push('/login')
-            }}
+        <Link href='/login' className="navbar-item" onClick={handleLogout}
           >
-            Log out
+            Log Out
           </Link>
         </TabNav.Link>
+          </>
+        ) : (
+          <>
+          <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/register"}>
+            <Link href="/register">Register</Link>
+          </TabNav.Link>
 
+          <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/login"}>
+            <Link href="/login">Log In</Link>
+          </TabNav.Link>
+          </>
+        )}
       </TabNav.Root>
   )
 }

@@ -9,12 +9,12 @@ export function ProductCard({ product, removeProduct, img_src, noButtons, isOwne
 
     return (
         <Card m="2" style={{
-            backgroundColor: "",
+            backgroundColor: "#f5e8d5",
             transition: "transform 0.3s ease, box-shadow 0.3s ease"
         }}
             onMouseEnter={(event) => {
                 event.currentTarget.style.transform = "scale(1.01)";
-                event.currentTarget.style.boxShadow = "0px 0px 20px skyblue"
+                event.currentTarget.style.boxShadow = "0px 0px 20px teal"
             }}
             onMouseLeave={(event) => {
                 event.currentTarget.style.transform = "scale(1)";
@@ -24,7 +24,7 @@ export function ProductCard({ product, removeProduct, img_src, noButtons, isOwne
             <Inset clip="padding-box" side="top">
                 <img src={img_src} style={{ width: "100%", height: "200px", objectFit: "cover", objectPosition: "center" }} />
             </Inset>
-            <Heading mt="2"><Link href={`/products/${product.id}`} style={{ textDecoration: "none", color: "inherit" }}>{product.name}</Link></Heading>
+            <Heading mt="2" size="4"><Link href={`/products/${product.id}`} style={{ textDecoration: "none", color: "inherit" }}>{product.name}</Link></Heading>
             <Box>
                 ${product.price}
             </Box>
@@ -36,7 +36,7 @@ export function ProductCard({ product, removeProduct, img_src, noButtons, isOwne
                             <AlertDialog.Trigger>
                                 <Button m="3" color="red">Delete</Button>
                             </AlertDialog.Trigger>
-                            <AlertDialog.Content>
+                            <AlertDialog.Content style={{ backgroundColor: "#f5e8d5"}}>
                                 <AlertDialog.Title align="center" m="3">Delete Product</AlertDialog.Title>
                                 <AlertDialog.Description align="center" m="3">Are you sure you want to permanently delete "{product.name}"?</AlertDialog.Description>
                                 <Box align="center">

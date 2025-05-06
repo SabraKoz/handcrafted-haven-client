@@ -27,7 +27,7 @@ export default function OrderPayment({ payment, cart }) {
                 <Dialog.Trigger>
                     <Button m="4" align="center">Complete Order</Button>
                 </Dialog.Trigger>
-                <Dialog.Content>
+                <Dialog.Content style={{ backgroundColor: "#BAC5BE" }}>
                     <Dialog.Title align="center" m="3">Add Payment Method</Dialog.Title>
                     <Dialog.Description align="center" m="3">Complete all fields to complete your order</Dialog.Description>
                     <Flex direction="column" gap="3">
@@ -38,6 +38,7 @@ export default function OrderPayment({ payment, cart }) {
                                 placeholder="Merchant Name"
                                 type="text"
                                 value={payment.merchant}
+                                style={{ backgroundColor: "#f5e8d5"}} m="3"
                             />
                         </label>
                         <label>
@@ -46,7 +47,8 @@ export default function OrderPayment({ payment, cart }) {
                                 id="number"
                                 placeholder="Card Number"
                                 type="text"
-                                value={payment.number} />
+                                value={payment.number}
+                                style={{ backgroundColor: "#f5e8d5"}} m="3" />
                         </label>
                         <label>
                             <Text>Expiration Date</Text>
@@ -54,7 +56,8 @@ export default function OrderPayment({ payment, cart }) {
                                 id="expiration"
                                 placeholder="YYYY-MM-DD"
                                 type="text"
-                                value={payment.expiration} />
+                                value={payment.expiration}
+                                style={{ backgroundColor: "#f5e8d5"}} m="3" />
                         </label>
                         <label>
                             <Text>Shipping and Billing Address</Text>
@@ -62,18 +65,19 @@ export default function OrderPayment({ payment, cart }) {
                                 id="address"
                                 placeholder="Address"
                                 type="text"
-                                value={payment.address} />
+                                value={payment.address}
+                                style={{ backgroundColor: "#f5e8d5"}} m="3" />
                         </label>
                     </Flex>
 
-                    <Flex>
+                    <Box align="center" m="3">
                         <Dialog.Close>
-                            <Button m="3" onClick={handleCompleteOrder}>Complete Order</Button>
+                            <Button m="4" onClick={handleCompleteOrder}>Complete Order</Button>
                         </Dialog.Close>
                         <Dialog.Close>
-                            <Button m="3" color="red">Cancel</Button>
+                            <Button m="4" color="red">Cancel</Button>
                         </Dialog.Close>
-                    </Flex>
+                    </Box>
                 </Dialog.Content>
             </Dialog.Root>
         </Box>

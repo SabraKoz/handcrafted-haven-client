@@ -20,16 +20,16 @@ export default function StoreOwnerButtons({ store, id, refresh }) {
     }
 
     return (
-        <Box>
+        <Box align="center">
             <Button m="3" onClick={() => router.push("/products/new")} >Add New Product</Button>
 
             <Dialog.Root>
                 <Dialog.Trigger>
                     <Button m="3">Edit Store</Button>
                 </Dialog.Trigger>
-                <Dialog.Content>
-                    <Dialog.Title>Edit Store</Dialog.Title>
-                    <Dialog.Description>Change your store name and/or description</Dialog.Description>
+                <Dialog.Content style={{ backgroundColor: "#BAC5BE"}}>
+                    <Dialog.Title align="center" m="3">Edit Store</Dialog.Title>
+                    <Dialog.Description align="center" m="3">Change your store name and/or description</Dialog.Description>
                     <Flex direction="column" gap="3">
                         <Box>
                             <Text>Name: </Text>
@@ -40,6 +40,7 @@ export default function StoreOwnerButtons({ store, id, refresh }) {
                                 name="name"
                                 defaultValue={store?.name || ""}
                                 ref={nameRef}
+                                style={{ backgroundColor: "#f5e8d5"}} m="3"
                             />
                         </Box>
                         <Box>
@@ -51,15 +52,18 @@ export default function StoreOwnerButtons({ store, id, refresh }) {
                                 name="description"
                                 defaultValue={store?.description || ""}
                                 ref={descriptionRef}
+                                style={{ backgroundColor: "#f5e8d5"}} m="3"
                             />
                         </Box>
                     </Flex>
+                    <Box align="center">
                     <Dialog.Close>
                         <Button m="4" onClick={updateStore}>Save</Button>
                     </Dialog.Close>
                     <Dialog.Close>
                         <Button m="4" color="red">Cancel</Button>
                     </Dialog.Close>
+                    </Box>
                 </Dialog.Content>
             </Dialog.Root>
         </Box>

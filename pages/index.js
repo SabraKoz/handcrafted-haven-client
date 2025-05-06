@@ -1,10 +1,14 @@
+import { Box, Container } from '@radix-ui/themes'
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
-import Products from './products'
 
 export default function Index() {
   return (
-    <Products />
+    <Container>
+      <Box align="center" m="9">
+          <img src="/Handcrafted Yarn logo.png" style={{ borderRadius: "60px" }} />
+      </Box>
+    </Container>
   )
 }
 

@@ -1,4 +1,4 @@
-import { Box, Button, Container, Heading, Text, TextField } from "@radix-ui/themes";
+import { Box, Button, Card, Container, Heading, Text, TextField } from "@radix-ui/themes";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import { useAppContext } from "../../context/state";
@@ -24,9 +24,9 @@ export default function NewStore(store = {}) {
 
     return (
         <Container>
-            <Box>
-            <Heading>Create Your Store</Heading>
-            <Box>
+            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "2px 2px 10px gray" }}>
+            <Heading m="5" align="center" size="8" weight="bold" style={{ color: "teal", textShadow: "1px 1px 2px black"}}>Create Your Store</Heading>
+            <Box m="3">
                 <Text>Name: </Text>
                 <TextField.Root
                     id="storeName"
@@ -34,23 +34,25 @@ export default function NewStore(store = {}) {
                     type="text"
                     name="name"
                     value={store.storeName}
+                    style={{ backgroundColor: "#f5e8d5"}} m="3"
                 />
             </Box>
-            <Box>
+            <Box m="3">
                 <Text>Description: </Text>
                 <TextField.Root
                     id="description"
                     placeholder="Description"
                     type="text"
                     name="description"
-                    value={store.description}                
+                    value={store.description}
+                    style={{ backgroundColor: "#f5e8d5"}} m="3"              
                 />
             </Box>
-            <Box>
+            <Box m="3" align="center">
                 <Button m="4" onClick={saveStore}>Save</Button>
                 <Button m="4" color="red" onClick={() => router.back()}>Cancel</Button>
             </Box>
-            </Box>
+            </Card>
         </Container>
     )
 }

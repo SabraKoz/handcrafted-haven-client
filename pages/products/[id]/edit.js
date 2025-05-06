@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useAppContext } from "../../../context/state";
 import { editProduct, getAllCategories, getProductById } from "../../../data/products";
-import { Box, Button, Container, Heading, Select, Text, TextField } from "@radix-ui/themes";
+import { Box, Button, Card, Container, Flex, Heading, Select, Text, TextArea, TextField } from "@radix-ui/themes";
 import Layout from "../../../components/layout";
 import Navbar from "../../../components/navbar";
 
@@ -71,8 +71,8 @@ export default function EditProduct() {
 
     return (
         <Container>
-            <Box>
-                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray"}}>Edit Product</Heading>
+            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "2px 2px 10px gray" }}>
+                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "teal", textShadow: "1px 1px 2px black"}}>Edit Product</Heading>
                 <Box m="3">
                     <Text>Name: </Text>
                     <TextField.Root
@@ -82,17 +82,20 @@ export default function EditProduct() {
                         name="name"
                         value={product?.name || ""}
                         onChange={(e) => setProduct(prev => ({ ...prev, name: e.target.value }))}
+                        style={{ backgroundColor: "#f5e8d5"}} m="3"
                     />
                 </Box>
                 <Box m="3">
                     <Text>Description: </Text>
-                    <TextField.Root
+                    <TextArea
                         id="description"
                         placeholder="Description"
                         type="text"
                         name="description"
                         value={product?.description || ""}
                         onChange={(e) => setProduct(prev => ({ ...prev, description: e.target.value }))}
+                        style={{ backgroundColor: "#f5e8d5"}} m="3"
+                        resize="vertical"
                     />
                 </Box>
                 <Box m="3">
@@ -104,6 +107,7 @@ export default function EditProduct() {
                         name="price"
                         value={product?.price || ""}
                         onChange={(e) => setProduct(prev => ({ ...prev, price: e.target.value }))}
+                        style={{ backgroundColor: "#f5e8d5"}} m="3"
                     />
                 </Box>
                 <Box m="3">
@@ -115,6 +119,7 @@ export default function EditProduct() {
                         name="quantity"
                         value={product?.quantity || ""}
                         onChange={(e) => setProduct(prev => ({ ...prev, quantity: e.target.value }))}
+                        style={{ backgroundColor: "#f5e8d5"}} m="3"
                     />
                 </Box>
                 <Box m="3">
@@ -122,8 +127,8 @@ export default function EditProduct() {
                     <Select.Root
                         value={selectedCategory}
                         onValueChange={setSelectedCategory}>
-                        <Select.Trigger />
-                        <Select.Content>
+                        <Select.Trigger style={{ backgroundColor: "#f5e8d5"}} />
+                        <Select.Content style={{ backgroundColor: "#f5e8d5"}}>
                             <Select.Group>
                                 {categories.map(category => {
                                     return (<Select.Item value={category.id} key={category.id}>{category.name}</Select.Item>)
@@ -138,19 +143,20 @@ export default function EditProduct() {
                         type="file"
                         id="image_path"
                         onChange={createProductImageString}
+                        style={{ backgroundColor: "#f5e8d5", maxWidth: "400px" }} m="3"
                     />
                     {product?.id && <TextField.Root type="hidden" name="product" value={product.id} />}
                     {productImage && (
-                        <Box>
+                        <Box m="2">
                             <img src={productImage} alt="product image preview" style={{ maxWidth: "200px" }} />
                         </Box>
                     )}
                 </Box>
-                <Box>
+                <Box m="3" align="center">
                     <Button m="4" onClick={updateProduct}>Save</Button>
                     <Button m="4" color="red" onClick={() => router.back()}>Cancel</Button>
                 </Box>
-            </Box>
+            </Card>
         </Container>
     )
 }

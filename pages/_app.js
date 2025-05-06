@@ -6,10 +6,10 @@ export default function Handcrafted({ Component, pageProps }) {
 
   return ( 
     <Theme
-      appearance="dark"
-      accentColor="sky" 
-      grayColor="mauve"
-      panelBackground="solid"
+      accentColor="teal" 
+      grayColor="olive"
+      panelBackground="transparent"
+      style={{ backgroundColor: "#BAC5BE", minHeight: "100vh", margin: "-8px" }}
     >
       {getLayout(<Component {...pageProps} />)}
     </Theme>

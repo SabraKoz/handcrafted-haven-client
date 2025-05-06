@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Grid, Heading, Select, Text } from "@radix-ui/themes";
+import { Box, Card, Container, Flex, Grid, Heading, Select, Text } from "@radix-ui/themes";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import { useEffect, useState } from "react";
@@ -39,17 +39,18 @@ export default function Products() {
 
     return (
         <Container>
-            <Heading m="5" align="center" size="8" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray" }}>Products</Heading>
+            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "2px 2px 10px gray" }}>
+            <Heading m="5" align="center" size="8" weight="bold" style={{ color: "teal", textShadow: "1px 1px 2px black" }}>Products</Heading>
             <Flex justify="between" align="center" m="7">
                 <Box>
                     <Text size="4" weight="medium" m="3">Filter by Category: </Text>
-                    <Select.Root defaultValue="all" onValueChange={(value) => setSelectedCategory(value === "all" ? null : value)}>
-                        <Select.Trigger >
+                    <Select.Root defaultValue="all" onValueChange={(value) => setSelectedCategory(value === "all" ? null : value)} >
+                        <Select.Trigger style={{backgroundColor: "#f5e8d5"}}>
                             {selectedCategory ? categories.find(category => category.id === selectedCategory)?.name : "Select a category"}
                         </Select.Trigger>
-                        <Select.Content>
-                            <Select.Group>
-                                <Select.Item value="all">Select a Category</Select.Item>
+                        <Select.Content style={{backgroundColor: "#f5e8d5"}}>
+                            <Select.Group >
+                                <Select.Item value="all" >Select a Category</Select.Item>
                                 {categories.map(category => (
                                     <Select.Item key={category.id} value={category.id}>
                                         {category.name}
@@ -62,10 +63,10 @@ export default function Products() {
                 <Box>
                     <Text size="4" weight="medium" m="3" >Filter by Price: </Text>
                     <Select.Root defaultValue="all" onValueChange={(value) => setSortOrder(value === "all" ? null : value)}>
-                        <Select.Trigger>
+                        <Select.Trigger style={{backgroundColor: "#f5e8d5"}}>
                             {sortOrder ? (sortOrder === "low" ? "Price: Low to High" : "Price: High to Low") : "Sort by Price"}
                         </Select.Trigger>
-                        <Select.Content>
+                        <Select.Content style={{backgroundColor: "#f5e8d5"}}>
                             <Select.Group>
                                 <Select.Item value="all">Sort by Price</Select.Item>
                                 <Select.Item value="low">Price: Low to High</Select.Item>
@@ -80,6 +81,7 @@ export default function Products() {
                     <ProductCard product={product} key={product.id} img_src={product.image_path} />
                 ))}
             </Grid>
+            </Card>
         </Container>
     )
 }

@@ -26,8 +26,8 @@ export default function Reviews({ product, refresh }) {
     }
 
     return (
-        <Box m="9" style={{ padding: "30px", border: "3px solid skyblue", borderRadius: "10px" }}>
-            <Text weight="medium">Reviews:</Text>
+        <Box m="9" style={{ padding: "30px", border: "2px solid teal", borderRadius: "10px", backgroundColor: "#f5e8d5" }}>
+            <Text weight="bold" size="4">Reviews:</Text>
             <Box m="2">
                 <TextArea
                     id="review"
@@ -39,8 +39,8 @@ export default function Reviews({ product, refresh }) {
                 <Button onClick={saveReview} m="2" disabled={!newReview.trim()} >Post Review</Button>
             </Box>
             {product.reviews?.map(review => (
-                        <Card key={review.id} m="2">
-                            <Box style={{ display: "flex", justifyContent: "space-between" }}><Text weight="bold">{review.user?.first_name}</Text></Box>
+                        <Card key={review.id} m="2" style={{ border: "1px solid teal", backgroundColor: "#BAC5BE" }}>
+                            <Box style={{ display: "flex", justifyContent: "space-between" }}><Text weight="medium">{review.user?.first_name}</Text></Box>
                             <Box m="2">"{review.review}"</Box>
                             {review.user?.id === profile?.id && (
                                 <Button onClick={() => removeReview()} style={{ position: "absolute", right: "25px", top: "25px", backgroundColor: "red" }}><FaTrash /></Button>

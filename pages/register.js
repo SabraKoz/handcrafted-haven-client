@@ -36,13 +36,13 @@ export default function Register() {
 
     return (
         <Container m="7">
-            <Box m="7" style={{ padding: "20px", borderRadius: "20px", boxShadow: "0 0 20px skyblue" }}>
-                <Heading size="8" align="center" m="5" weight="bold" style={{ color: "skyblue", textShadow: "2px 2px 2px gray"}}>Welcome to Handcrafted Haven</Heading>
+            <Box m="7" style={{ padding: "20px", borderRadius: "20px", boxShadow: "0 0 20px teal", backgroundColor: "#BAC5BE" }}>
+                <Heading size="8" align="center" m="5" weight="bold" style={{ color: "teal", textShadow: "1px 1px 2px black"}}>Welcome to Handcrafted Haven!</Heading>
                 <Box m="4" style={{ display: "flex", justifyContent: "center" }}>
                     <Text m="2">First Name: </Text>
                     <TextField.Root
                         m="1"
-                        style={{ width: "400px" }}
+                        style={{ width: "400px", backgroundColor: "#f5e8d5" }}
                         id="firstName"
                         placeholder="First Name"
                         ref={firstName}
@@ -54,7 +54,7 @@ export default function Register() {
                     <Text m="2">Last Name: </Text>
                     <TextField.Root
                         m="1"
-                        style={{ width: "400px" }}
+                        style={{ width: "400px", backgroundColor: "#f5e8d5" }}
                         id="lastName"
                         placeholder="Last Name"
                         ref={lastName}
@@ -66,7 +66,7 @@ export default function Register() {
                     <Text m="2">Username: </Text>
                     <TextField.Root
                         m="1"
-                        style={{ width: "400px" }}
+                        style={{ width: "400px", backgroundColor: "#f5e8d5" }}
                         id="username"
                         placeholder="Username"
                         ref={username}
@@ -80,7 +80,7 @@ export default function Register() {
                     <Text m="2">Password: </Text>
                     <TextField.Root
                         m="1"
-                        style={{ width: "400px" }}
+                        style={{ width: "400px", backgroundColor: "#f5e8d5" }}
                         id="password"
                         placeholder="Password"
                         ref={password}
@@ -92,7 +92,7 @@ export default function Register() {
                     <Text m="2">Email: </Text>
                     <TextField.Root
                         m="1"
-                        style={{ width: "400px" }}
+                        style={{ width: "400px", backgroundColor: "#f5e8d5" }}
                         id="email"
                         placeholder="Email"
                         ref={email}
@@ -103,9 +103,6 @@ export default function Register() {
                 <Box>
                     <Box m="3" style={{ display: "flex", justifyContent: "center" }}>
                         <Button m="3" onClick={submit}>Register</Button>
-                        <Link href="/login">
-                            <Button m="3">Login</Button>
-                        </Link>
                     </Box>
                 </Box>
             </Box>

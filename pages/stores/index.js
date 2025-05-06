@@ -1,4 +1,4 @@
-import { Container, Grid, Heading } from "@radix-ui/themes";
+import { Card, Container, Grid, Heading } from "@radix-ui/themes";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import { useEffect, useState } from "react";
@@ -19,12 +19,14 @@ export default function Stores() {
 
     return (
         <Container>
-            <Heading m="5" align="center" size="8" weight="bold" style={{ textShadow: "2px 2px 2px gray", color: "skyblue"}}>Stores</Heading>
+            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "2px 2px 10px gray" }}>
+            <Heading m="5" align="center" size="8" weight="bold" style={{ textShadow: "1px 1px 2px black", color: "teal"}}>Stores</Heading>
             <Grid columns="3" gap="3">
                 {stores.map(store => (
                     <StoreCard store={store} key={store.id} />
                 ))}
             </Grid>
+            </Card>
         </Container>
     )
 }
