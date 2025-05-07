@@ -9,7 +9,7 @@ export default function Layout({ children }) {
         <Head>
           <title>Handcrafted Haven</title>
         </Head>
-        <Box style={{ backgroundImage: "url('/wood.jpg')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "repeat", minHeight: "100vh" }}>
+        <Box style={{ backgroundImage: "url('')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "repeat", minHeight: "100vh", quality: "25" }}>
         <main className="container">{children}</main>
         </Box>
       </>

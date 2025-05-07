@@ -68,7 +68,7 @@ export default function ProductDetail() {
                 </Box>
                 <Box m="3">
                     <Text>Quantity: </Text>
-                    {product.quantity}
+                    {product.available_quantity}
                 </Box>
                 <Box m="3">
                     <Text>Favorites: </Text>
@@ -87,7 +87,7 @@ export default function ProductDetail() {
                 <Box>
                     <Dialog.Root>
                         <Dialog.Trigger>
-                            <Button>Add to Cart</Button>
+                            <Button disabled={product.available_quantity === 0}>{product.available_quantity === 0 ? "Sold Out" : "Add to Cart"}</Button>
                         </Dialog.Trigger>
                         <Dialog.Content style={{ backgroundColor: "#BAC5BE"}}>
                             <Dialog.Title align="center" m="3">Customization</Dialog.Title>
@@ -102,9 +102,6 @@ export default function ProductDetail() {
                             <Box align="center">
                                 <Dialog.Close>
                                     <Button m="3" onClick={addToCart}>Add to Cart</Button>
-                                </Dialog.Close>
-                                <Dialog.Close>
-                                    <Button onClick={addToCart} m="3">Add without Customization</Button>
                                 </Dialog.Close>
                                 <Dialog.Close>
                                     <Button m="3" color="red">Cancel</Button>
