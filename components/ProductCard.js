@@ -14,7 +14,7 @@ export function ProductCard({ product, removeProduct, img_src, noButtons, isOwne
         }}
             onMouseEnter={(event) => {
                 event.currentTarget.style.transform = "scale(1.01)";
-                event.currentTarget.style.boxShadow = "0px 0px 20px teal"
+                event.currentTarget.style.boxShadow = "0px 0px 20px gray"
             }}
             onMouseLeave={(event) => {
                 event.currentTarget.style.transform = "scale(1)";

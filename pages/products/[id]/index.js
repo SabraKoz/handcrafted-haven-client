@@ -7,7 +7,7 @@ import Navbar from "../../../components/navbar";
 import Link from "next/link";
 import { FaHeart, FaRegHeart } from "react-icons/fa"
 import Reviews from "../../../components/reviews";
-import { addProductToOrder, getCart } from "../../../data/orders";
+import { addProductToOrder } from "../../../data/orders";
 
 export default function ProductDetail() {
     const router = useRouter()
@@ -45,13 +45,13 @@ export default function ProductDetail() {
 
     return (
         <Container>
-            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "2px 2px 10px gray" }}>
+            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "0 0 20px black" }}>
                 <Heading 
                     m="5" 
                     align="center" 
                     size="8" 
                     weight="bold" 
-                    style={{ color: "teal", textShadow: "1px 1px 2px black" }}>
+                    style={{ textShadow: "2px 2px 3px teal" }}>
                         {product.name}
                 </Heading>
                 <Flex justify="between" m="5">
@@ -61,7 +61,7 @@ export default function ProductDetail() {
                         <HoverCard.Trigger>
                             <Link href={`/stores/${product.store?.id}`} style={{ textDecoration: "none", color: "teal", fontWeight: "bold" }}>{product.store?.name}</Link>
                         </HoverCard.Trigger>
-                        <HoverCard.Content size="1">
+                        <HoverCard.Content size="1" style={{ backgroundColor: "#f5e8d5" }}>
                             <Text>View Store</Text>
                         </HoverCard.Content>
                     </HoverCard.Root>

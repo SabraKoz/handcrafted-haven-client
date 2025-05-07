@@ -39,8 +39,8 @@ export default function Products() {
 
     return (
         <Container>
-            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "2px 2px 10px gray" }}>
-            <Heading m="5" align="center" size="8" weight="bold" style={{ color: "teal", textShadow: "1px 1px 2px black" }}>Products</Heading>
+            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "0 0 20px black" }}>
+            <Heading m="5" align="center" size="8" weight="bold" style={{ textShadow: "2px 2px 3px teal" }}>Products</Heading>
             <Flex justify="between" align="center" m="7">
                 <Box>
                     <Text size="4" weight="medium" m="3">Filter by Category: </Text>

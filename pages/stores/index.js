@@ -19,8 +19,8 @@ export default function Stores() {
 
     return (
         <Container>
-            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "2px 2px 10px gray" }}>
-            <Heading m="5" align="center" size="8" weight="bold" style={{ textShadow: "1px 1px 2px black", color: "teal"}}>Stores</Heading>
+            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "0 0 20px black" }}>
+            <Heading m="5" align="center" size="8" weight="bold" style={{ textShadow: "2px 2px 3px teal" }}>Stores</Heading>
             <Grid columns="3" gap="3">
                 {stores.map(store => (
                     <StoreCard store={store} key={store.id} />

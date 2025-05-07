@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { AppWrapper } from '../context/state'
 import { Box } from '@radix-ui/themes'
+import Image from 'next/legacy/image'
 
 export default function Layout({ children }) {
   return (
@@ -9,7 +10,10 @@ export default function Layout({ children }) {
         <Head>
           <title>Handcrafted Haven</title>
         </Head>
-        <Box style={{ backgroundImage: "url('')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "repeat", minHeight: "100vh", quality: "25" }}>
+        <Box style={{ position: "relative", minHeight: "100vh" }}>
+          <div style={{ position: "absolute", inset: 0, zIndex: -1 }}>
+            <Image src='/wood.jpg' alt="Wood Texture Background" layout='fill' objectFit='cover' quality={50} priority />
+          </div>
         <main className="container">{children}</main>
         </Box>
       </>

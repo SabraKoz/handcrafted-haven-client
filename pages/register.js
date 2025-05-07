@@ -1,14 +1,14 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import { useAppContext } from '../context/state'
 import { register } from '../data/auth'
-import { Box, Button, Container, Heading, Text, TextField } from '@radix-ui/themes'
+import { AlertDialog, Box, Button, Container, Heading, Text, TextField } from '@radix-ui/themes'
 
 export default function Register() {
     const { setToken } = useAppContext()
+    const [isAlertDialogOpen, setIsAlertDialogOpen] = useState(false)
 
     const firstName = useRef('')
     const lastName = useRef('')
@@ -28,16 +28,18 @@ export default function Register() {
             last_name: lastName.current.value,
         }
 
+        if (user.username && user.email && user.password && user.first_name && user.last_name) {
         register(user).then((res) => {
             setToken(res.token)
             router.push('/')
         })
+    } else {setIsAlertDialogOpen(true)}
     }
 
     return (
         <Container m="7">
-            <Box m="7" style={{ padding: "20px", borderRadius: "20px", boxShadow: "0 0 20px teal", backgroundColor: "#BAC5BE" }}>
-                <Heading size="8" align="center" m="5" weight="bold" style={{ color: "teal", textShadow: "1px 1px 2px black"}}>Welcome to Handcrafted Haven!</Heading>
+            <Box m="7" style={{ padding: "20px", borderRadius: "20px", boxShadow: "0 0 20px black", backgroundColor: "#BAC5BE" }}>
+                <Heading size="8" align="center" m="5" weight="bold" style={{ textShadow: "2px 2px 3px teal" }}>Welcome to Handcrafted Haven!</Heading>
                 <Box m="4" style={{ display: "flex", justifyContent: "center" }}>
                     <Text m="2">First Name: </Text>
                     <TextField.Root
@@ -105,6 +107,18 @@ export default function Register() {
                         <Button m="3" onClick={submit}>Register</Button>
                     </Box>
                 </Box>
+
+                <AlertDialog.Root open={isAlertDialogOpen} onOpenChange={setIsAlertDialogOpen}>
+                    <AlertDialog.Content style={{ backgroundColor: "#f5e8d5" }}>
+                        <AlertDialog.Title m="3" align="center">Missing Information</AlertDialog.Title>
+                        <AlertDialog.Description m="3" align="center">Please Complete all fields</AlertDialog.Description>
+                        <Box align="center" m="3">
+                            <AlertDialog.Cancel>
+                                <Button onClick={() => setIsAlertDialogOpen(false)} >Continue</Button>
+                            </AlertDialog.Cancel>
+                        </Box>
+                    </AlertDialog.Content>
+                </AlertDialog.Root>
             </Box>
         </Container>
     )

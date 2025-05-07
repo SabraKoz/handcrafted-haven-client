@@ -1,4 +1,4 @@
-import { Box, Button, Card, Container, Dialog, Flex, Heading, Table, Text } from "@radix-ui/themes";
+import { Box, Button, Card, Container, Flex, Heading, Table } from "@radix-ui/themes";
 import { Sidebar } from "../../components/Sidebar";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
@@ -36,8 +36,8 @@ export default function Cart(payment = {}) {
         <Flex>
             <Sidebar activePath={router.pathname} profile={profile} />
             <Container m="7">
-                <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "2px 2px 10px gray" }}>
-                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "teal", textShadow: "1px 1px 2px black" }}>{profile.first_name}'s Cart</Heading>
+                <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "0 0 20px black" }}>
+                <Heading m="5" align="center" size="8" weight="bold" style={{ textShadow: "2px 2px 3px teal" }}>{profile.first_name}'s Cart</Heading>
                 <Box>
                 <Table.Root m="9" variant="surface" style={{ backgroundColor: "#f5e8d5"}}>
                     <Table.Header>

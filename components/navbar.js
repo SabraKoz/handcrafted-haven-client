@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { useEffect, useState, useRef } from 'react'
 import { useAppContext } from '../context/state'
 import { useRouter } from 'next/router'
 import { TabNav } from '@radix-ui/themes'

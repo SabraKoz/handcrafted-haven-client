@@ -1,4 +1,4 @@
-import { Box, Button, Card, Container, Heading, Select, Text, TextField } from "@radix-ui/themes";
+import { AlertDialog, Box, Button, Card, Container, Heading, Select, Text, TextField } from "@radix-ui/themes";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "../../components/layout";
@@ -11,6 +11,7 @@ export default function NewProduct(product = {}) {
     const [categories, setCategories] = useState([])
     const [selectedCategory, setSelectedCategory] = useState("")
     const [productImage, setProductImage] = useState(null)
+    const [isAlertDialogOpen, setIsAlertDialogOpen] = useState(false)
 
     const getBase64 = (file, callback) => {
         const reader = new FileReader();
@@ -43,15 +44,17 @@ export default function NewProduct(product = {}) {
             product.image_path = productImage
          }
 
+         if (product.name && product.description && product.price && product.quantity && product.category) {
          addProduct(product).then(res => {
             router.push(`/products/${res.id}`)
          })
+        } else {setIsAlertDialogOpen(true)}
        }
 
     return (
         <Container>
-            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "2px 2px 10px gray" }}>
-            <Heading m="5" align="center" size="8" weight="bold" style={{ color: "teal", textShadow: "1px 1px 2px black"}}>Add New Product</Heading>
+            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "0 0 20px black" }}>
+            <Heading m="5" align="center" size="8" weight="bold" style={{ textShadow: "2px 2px 3px teal" }}>Add New Product</Heading>
             <Box m="3">
                 <Text>Name: </Text>
                 <TextField.Root
@@ -126,10 +129,24 @@ export default function NewProduct(product = {}) {
                     </Box>
                 )}
             </Box>
+
             <Box m="3" align="center">
                 <Button m="4" onClick={saveProduct}>Save</Button>
                 <Button m="4" color="red" onClick={() => router.back()}>Cancel</Button>
             </Box>
+
+            <AlertDialog.Root open={isAlertDialogOpen} onOpenChange={setIsAlertDialogOpen}>
+                <AlertDialog.Content style={{ backgroundColor: "#f5e8d5"}}>
+                    <AlertDialog.Title m="3" align="center">Missing Information</AlertDialog.Title>
+                    <AlertDialog.Description m="3" align="center">Please Complete all fields</AlertDialog.Description>
+                    <Box align="center" m="3">
+                        <AlertDialog.Cancel>
+                            <Button  onClick={() => setIsAlertDialogOpen(false)} >Continue</Button>
+                        </AlertDialog.Cancel>
+                    </Box>
+                </AlertDialog.Content>
+            </AlertDialog.Root>
+
             </Card>
         </Container>
     )

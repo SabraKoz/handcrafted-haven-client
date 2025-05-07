@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useAppContext } from "../../../context/state";
 import { editProduct, getAllCategories, getProductById } from "../../../data/products";
-import { Box, Button, Card, Container, Flex, Heading, Select, Text, TextArea, TextField } from "@radix-ui/themes";
+import { Box, Button, Card, Container, Heading, Select, Text, TextArea, TextField } from "@radix-ui/themes";
 import Layout from "../../../components/layout";
 import Navbar from "../../../components/navbar";
 
@@ -71,8 +71,8 @@ export default function EditProduct() {
 
     return (
         <Container>
-            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "2px 2px 10px gray" }}>
-                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "teal", textShadow: "1px 1px 2px black"}}>Edit Product</Heading>
+            <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "0 0 20px black" }}>
+                <Heading m="5" align="center" size="8" weight="bold" style={{ textShadow: "2px 2px 3px teal" }}>Edit Product</Heading>
                 <Box m="3">
                     <Text>Name: </Text>
                     <TextField.Root

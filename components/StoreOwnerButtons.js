@@ -1,6 +1,6 @@
 import { Box, Button, Dialog, Flex, Text, TextField } from "@radix-ui/themes";
-import { editStore, getStoreById } from "../data/stores";
-import { useEffect, useRef, useState } from "react";
+import { editStore } from "../data/stores";
+import { useRef } from "react";
 import { useRouter } from "next/router";
 
 export default function StoreOwnerButtons({ store, id, refresh }) {

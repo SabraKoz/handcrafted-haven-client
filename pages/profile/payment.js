@@ -33,8 +33,8 @@ export default function Payments() {
         <Flex>
             <Sidebar activePath={router.pathname} profile={profile} />
             <Container m="7">
-                <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "2px 2px 10px gray" }}>
-                <Heading m="5" align="center" size="8" weight="bold" style={{ color: "teal", textShadow: "1px 1px 2px black" }}>{profile.first_name}'s Payment Methods</Heading>
+                <Card m="5" style={{ padding: "20px", backgroundColor: "#BAC5BE", borderRadius: "10px", boxShadow: "0 0 20px black" }}>
+                <Heading m="5" align="center" size="8" weight="bold" style={{ textShadow: "2px 2px 3px teal" }}>{profile.first_name}'s Payment Methods</Heading>
                 
                 <Table.Root variant="surface" m="6" style={{ backgroundColor: "#f5e8d5"}}>
                     <Table.Header>

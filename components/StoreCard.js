@@ -1,4 +1,4 @@
-import { Card, Heading, Text } from "@radix-ui/themes";
+import { Box, Card, Heading, Text } from "@radix-ui/themes";
 import Link from "next/link";
 
 
@@ -11,17 +11,18 @@ export function StoreCard({ store }) {
         }}
         onMouseEnter={(event) => {
             event.currentTarget.style.transform = "scale(1.01)";
-            event.currentTarget.style.boxShadow = "0px 0px 20px teal"
+            event.currentTarget.style.boxShadow = "0px 0px 20px gray"
         }}
         onMouseLeave={(event) => {
             event.currentTarget.style.transform = "scale(1)";
             event.currentTarget.style.boxShadow = "none"
         }}>
-            <Heading size="4">
-                <Link href={`stores/${store.id}`} style={{ textDecoration: "none", color: "inherit" }}>{store.name}</Link>
+            <Link href={`stores/${store.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+            <Heading size="4" m="3">
+                {store.name}
             </Heading>
-            <Text as="div">Owner: {store.owner_name}</Text>
-            <Text as="div">{store.description}</Text>
+            <Box m="3"><Text>{store.description}</Text></Box>
+            </Link>
         </Card>
     )
 }
