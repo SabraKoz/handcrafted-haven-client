@@ -25,7 +25,6 @@ Independent artisans struggle to find accessible platforms to showcase their han
 * Next.js
 * SQLite
 * Django
-* Django Rest Framework
 * Python
 
 ## ERD
