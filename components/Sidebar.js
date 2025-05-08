@@ -21,7 +21,7 @@ export function Sidebar({ activePath, profile }) {
     }
 
     return (
-        <Card style={{ backgroundColor: "#BAC5BE", paddingRight: "40px", height: "550px" }}>
+        <Box style={{ backgroundColor: "#BAC5BE", paddingRight: "40px", minHeight: "100vh", width: "270px" }}>
             <Flex direction="column" gap="5" mt="7" ml="7">
                 {links.map(({ path, label }) => (
                     <Link key={path} href={path} style={{ textDecoration: "none", color: "inherit" }}>
@@ -39,6 +39,6 @@ export function Sidebar({ activePath, profile }) {
                     </Link>
                 ))}
             </Flex>
-        </Card>
+        </Box>
     );
 }
