@@ -23,12 +23,6 @@ export default function Payments() {
         refresh()
     }, [profile])
 
-    const removePayment = (paymentId) => {
-        deletePayment(paymentId).then(() => {
-            refresh()
-        })
-    }
-
     return (
         <Flex>
             <Sidebar activePath={router.pathname} profile={profile} />
@@ -43,7 +37,6 @@ export default function Payments() {
                             <Table.ColumnHeaderCell>Card Number</Table.ColumnHeaderCell>
                             <Table.ColumnHeaderCell>Expiration Date</Table.ColumnHeaderCell>
                             <Table.ColumnHeaderCell>Address</Table.ColumnHeaderCell>
-                            <Table.ColumnHeaderCell>Remove Payment</Table.ColumnHeaderCell>
                         </Table.Row>
                     </Table.Header>
                     {payments.map(payment => (
@@ -53,11 +46,6 @@ export default function Payments() {
                                 <Table.Cell>{payment.number}</Table.Cell>
                                 <Table.Cell>{payment.expiration}</Table.Cell>
                                 <Table.Cell>{payment.address}</Table.Cell>
-                                <Table.Cell>
-                                    <Button onClick={() => removePayment(payment.id)} color="red">
-                                        <FaTrash />
-                                    </Button>
-                                </Table.Cell>
                             </Table.Row>
                         </Table.Body>
                     ))}

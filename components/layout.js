@@ -12,7 +12,7 @@ export default function Layout({ children }) {
         </Head>
         <Box style={{ position: "relative", minHeight: "100vh" }}>
           <div style={{ position: "absolute", inset: 0, zIndex: -1 }}>
-            <Image src='/wood.jpg' alt="Wood Texture Background" layout='fill' objectFit='cover' quality={50} priority />
+            <Image src='/wood.jpg' alt="Wood Texture Background" layout='fill' objectFit='cover' quality={25} priority />
           </div>
         <main className="container">{children}</main>
         </Box>

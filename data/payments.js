@@ -17,16 +17,3 @@ export function addPayment(payment) {
     }).then(res => res.json())
 }
 
-export function deletePayment(id) {
-    return fetch(`http://localhost:8000/payments/${id}`, {
-        method: "DELETE",
-        headers: {
-            Authorization: `Token ${localStorage.getItem('token')}`
-        }
-    }).then(res => {
-        if (res.status === 204) {
-            return null
-        }
-        return res.text()
-    })
-}

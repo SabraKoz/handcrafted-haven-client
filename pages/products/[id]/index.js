@@ -78,6 +78,10 @@ export default function ProductDetail() {
                     <Text>Reviews: </Text>
                     {product.reviews?.length}
                 </Box>
+                <Box m="3">
+                    <Text>Price: </Text>
+                    ${product.price}
+                </Box>
                 {
                     product.is_favorited ? 
                         <Button onClick={unfavorite}><FaHeart /></Button>
