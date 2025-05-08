@@ -1,40 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Welcome to Handcrafted Haven
 
-## Getting Started
+A marketplace and community for artisans and handmade product lovers, bringing creators and customers together to celebrate craftsmanship.
 
-First, run the development server:
+## Purpose
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Independent artisans struggle to find accessible platforms to showcase their handmade goods, while consumers seeking unique items lack a dedicated space to discover authentic handcrafted products. Handcrafted Haven solves this problem by creating an online marketplace where artisans can establish virtual storefronts and connect directly with customers who value handmade craftsmanship.
+
+## Features
+
+* Allows users to create, edit, and delete their own handcrafted products
+* Allows users to view product details and favorite/unfavorite products, leave reviews, and add products to their cart
+* Filter all products by category and price (low to high or high to low)
+* View stores by other users and their own store where they can edit or delete their products
+* Profile view where a user can see their favorites, their cart, their order history, their saved payment methods, and create or view their store
+* Users can complete an order in their cart view
+
+## Technologies Used
+
+* React
+* JavaScript
+* Radix
+* Next.js
+* SQLite
+* Django
+* Django Rest Framework
+* Python
+
+## ERD
+
+<img src="./public/Handcrafted Haven ERD.png">
+
+## Wireframe
+
+<img src="./public/Handcrafted Haven Wireframe.jpg">
+
+## Setup
+
+1. Clone the repository
+
+```
+git clone git@github.com:SabraKoz/handcrafted-haven-client.git
+cd handcrafted-haven-client
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Installations
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+npm install
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+3. Launch Application
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run API
 
-## Learn More
+Go to https://github.com/SabraKoz/handcrafted-haven-api to run the API
 
-To learn more about Next.js, take a look at the following resources:
+## Creator
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+Sabra Kozlina
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+[GitHub] (https://github.com/SabraKoz)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+[LinkedIn] (https://www.linkedin.com/in/sabra-kozlina/)
