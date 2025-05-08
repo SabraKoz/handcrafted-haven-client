@@ -2,6 +2,8 @@
 
 A marketplace and community for artisans and handmade product lovers, bringing creators and customers together to celebrate craftsmanship.
 
+<img src="./public/Handcrafted Yarn logo.png">
+
 ## Purpose
 
 Independent artisans struggle to find accessible platforms to showcase their handmade goods, while consumers seeking unique items lack a dedicated space to discover authentic handcrafted products. Handcrafted Haven solves this problem by creating an online marketplace where artisans can establish virtual storefronts and connect directly with customers who value handmade craftsmanship.
