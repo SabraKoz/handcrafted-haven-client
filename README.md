@@ -57,7 +57,7 @@ npm run dev
 
 4. Run API
 
-Go to https://github.com/SabraKoz/handcrafted-haven-api to run the API
+* Go to https://github.com/SabraKoz/handcrafted-haven-api to run the API
 
 ## Creator
 
